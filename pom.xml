@@ -9,11 +9,11 @@
 		<version>2.3.12.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.valdir</groupId>
-	<artifactId>helpdesk</artifactId>
+	<groupId>com.tarefas</groupId>
+	<artifactId>sgt-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>helpdesk</name>
-	<description>Demo project for Spring Boot</description>
+	<name>sgt-backend</name>
+	<description>Sistema de Gerenciamento de Tarefas</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -37,13 +37,8 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
