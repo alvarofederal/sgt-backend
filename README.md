@@ -2,7 +2,7 @@
 
 ## Para execução da aplicação, deverá seguir os seguintes passos:
 
-## -Clonar a aplicação do github - 
+## -Clonar em um diretório a aplicação do github - https://github.com/alvarofederal/sgt-backend
 
 ## -Criação de um banco de dados em postgres "sgtdb":
 #### Na primeira execução, não alterar a flag "create":
