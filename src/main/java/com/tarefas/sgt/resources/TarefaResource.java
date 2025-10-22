@@ -29,33 +29,33 @@ public class TarefaResource {
 	@Autowired
 	private TarefaService service;
 
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<TarefaDTO> findById(@PathVariable Integer id) {
 		Tarefa obj = service.findById(id);
 		return ResponseEntity.ok().body(new TarefaDTO(obj));
 	}
 
-	@GetMapping
+	@GetMapping(produces = "application/json")
 	public ResponseEntity<List<TarefaDTO>> findAll() {
 		List<Tarefa> list = service.findAll();
 		List<TarefaDTO> listDTO = list.stream().map(obj -> new TarefaDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 
-	@PostMapping
+	@PostMapping(produces = "application/json")
 	public ResponseEntity<TarefaDTO> create(@Valid @RequestBody TarefaDTO obj) {
 		Tarefa newObj = service.create(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<TarefaDTO> update(@PathVariable Integer id, @Valid @RequestBody TarefaDTO objDTO) {
 		Tarefa newObj = service.update(id, objDTO);
 		return ResponseEntity.ok().body(new TarefaDTO(newObj));
 	}
 	
-	@PatchMapping("/{id}/concluir")
+	@PatchMapping(value = "/{id}/concluir", produces = "application/json")
     public ResponseEntity<Tarefa> concluir(@PathVariable Integer id) {
         return ResponseEntity.ok(service.atualizarStatusConcluido(id));
     }

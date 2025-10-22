@@ -75,5 +75,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				+ "\"message\": \"Email ou senha inválidos\", "
 				+ "\"path\": \"/login\"}";
 	}
+
+	public void setJwtUtil(JWTUtil jwtUtil2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

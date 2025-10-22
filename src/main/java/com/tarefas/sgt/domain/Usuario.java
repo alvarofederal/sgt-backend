@@ -18,29 +18,38 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tarefas.sgt.domain.enums.Perfil;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = -995449792073833123L;
 	
+    @ApiModelProperty(value = "Código do Usuário")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+    @ApiModelProperty(value = "Nome do usuário")
 	private String nome;
 	
+    @ApiModelProperty(value = "CPF do usuário")
 	@Column(unique = true)
 	private String cpf;
 	
+    @ApiModelProperty(value = "E-mail do usuário")
 	@Column(unique = true)
 	private String email;
 	
+    @ApiModelProperty(value = "Password do usuário")
 	private String senha;
 	
+    @ApiModelProperty(value = "Perfis do usuário")
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "PERFIS")
 	private Set<Integer> perfis = new HashSet<>();
 	
+    @ApiModelProperty(value = "Data de Criação do usuário")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCriacao = LocalDate.now();
 

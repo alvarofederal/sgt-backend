@@ -47,10 +47,6 @@ public class Tarefa implements Serializable {
 		this.statusTarefa = statusTarefa;
 	}
 
-	public Tarefa(Object object, String string, String string2, String string3, String string4, int i) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Integer getId() {
 		return id;
 	}

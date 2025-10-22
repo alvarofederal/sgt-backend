@@ -13,7 +13,7 @@
 
 ## -Por se tratar de uma aplicação Springboot, abrir o projeto, de preferência, tanto no Intelij quanto no Eclipse STS, e executar a subida do servidor
 
-## -Quando executado a primeira vez, após a criação da estrutura de tabelas do banco de dados, a aplicação, atravez da classe DBService.class,
+## -Quando executado a primeira vez, após a criação da estrutura de tabelas do banco de dados, a aplicação, atravez da classe `DBService.class`,
 ## executa uma carga no banco de dados, contendo usuários, e algumas tarefas, que poderão se acessadas no backend. Abaixo, se encontra os usuários da aplicação:
                       
 ##    NOME            USUÁRIO DA APLICAÇÃO  SENHA                                               
@@ -28,6 +28,9 @@
 #####   Stephen Hawking      | hawking@mail.com         |123                          
                                                         
 #####   Max Planck           | planck@mail.com          |123     
+
+## Acesso a Documentação com SWAGGER pelo backend
+#### LINK: `http://localhost:8080/swagger-ui.html`
 
 
  

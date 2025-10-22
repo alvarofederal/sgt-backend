@@ -32,35 +32,33 @@ public class UsuarioResource {
 	@Autowired
 	private UsuarioService service;
 
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<UsuarioDTO> findById(@PathVariable Integer id) {
 		Usuario obj = service.findById(id);
 		return ResponseEntity.ok().body(new UsuarioDTO(obj));
 	}
 
-	@GetMapping
+	@GetMapping(produces = "application/json")
 	public ResponseEntity<List<UsuarioDTO>> findAll() {
 		List<Usuario> list = service.findAll();
 		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 
-	@PreAuthorize("hasAnyRole('ADMIN')")
-	@PostMapping
+	@PostMapping(produces = "application/json")
 	public ResponseEntity<UsuarioDTO> create(@Valid @RequestBody UsuarioDTO objDTO) {
 		Usuario newObj = service.create(objDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN')")
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<UsuarioDTO> update(@PathVariable Integer id, @Valid @RequestBody UsuarioDTO objDTO) {
 		Usuario obj = service.update(id, objDTO);
 		return ResponseEntity.ok().body(new UsuarioDTO(obj));
 	}
 	
-	@PostMapping("/register")
+	@PostMapping(value = "/register", produces = "application/json")
 	public ResponseEntity<String> registerUser(@Valid @RequestBody SignForm form, final HttpServletRequest request) {
 		if (service.existsByEmail(form.getEmail())) {
 			return new ResponseEntity<String>("Usuário já cadastrado!", HttpStatus.CONFLICT);
