@@ -12,25 +12,33 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tarefas.sgt.domain.enums.StatusTarefa;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Tarefa implements Serializable {
 
 	private static final long serialVersionUID = 7207798038215196224L;
 
+    @ApiModelProperty(value = "Código da Tarefa")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+    @ApiModelProperty(value = "Título da Tarefa")
 	private String titulo;
 
+    @ApiModelProperty(value = "Descrição da Tarefa")
 	private String descricao;
 	
+    @ApiModelProperty(value = "Data de Criação da Tarefa")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCriacao = LocalDate.now();
 
+    @ApiModelProperty(value = "Data de Vencimento da Tarefa")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataVencimento;
 
+    @ApiModelProperty(value = "Status da Tarefa")
 	private StatusTarefa statusTarefa;
 
 	public Tarefa() {

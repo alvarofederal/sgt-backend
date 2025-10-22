@@ -69,6 +69,10 @@ public class UsuarioService {
 		}
 	}
 	
+	public void delete(Integer id) {
+		repository.deleteById(id);
+	}
+	
 	public Usuario register(SignForm signForm) {
 		Usuario user = new Usuario();
 		user.setNome(signForm.getNome());

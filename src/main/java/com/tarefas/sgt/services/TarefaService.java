@@ -13,7 +13,6 @@ import com.tarefas.sgt.domain.Tarefa;
 import com.tarefas.sgt.domain.dtos.TarefaDTO;
 import com.tarefas.sgt.domain.enums.StatusTarefa;
 import com.tarefas.sgt.repositories.TarefaRepository;
-import com.tarefas.sgt.services.exceptions.DataIntegrityViolationException;
 import com.tarefas.sgt.services.exceptions.ObjectnotFoundException;
 
 @Service
@@ -61,10 +60,6 @@ public class TarefaService {
 	}
 	
 	public void delete(Integer id) {
-		Tarefa obj = findById(id);
-		if (obj.getId() > 0) {
-			throw new DataIntegrityViolationException("Cliente possui ordens de serviço e não pode ser deletado!");
-		}
 		repository.deleteById(id);
 	}
 	
